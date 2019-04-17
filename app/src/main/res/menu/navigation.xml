@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_paket"
+        android:icon="@drawable/distance"
+        android:title="Paket Tour" />
+
+    <item
+        android:id="@+id/navigation_pesanan"
+        android:icon="@drawable/pesanan"
+        android:title="Pemesanan Tour" />
+
+    <item
+        android:id="@+id/navigation_pengguna"
+        android:icon="@drawable/pemilik_kos"
+        android:title="Pengguna" />
+
+    <item
+        android:id="@+id/navigation_laporan"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="Laporan" />
+
+</menu>
