@@ -49,6 +49,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Kelas.SharedVariable;
 import Kelas.UserModel;
 import Kelas.Utils;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -165,7 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://192.168.43.239/ApiNakula/User/simpanUserData/");
+                            SharedVariable.ipServer+"/ApiNakula/User/simpanUserData/");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     response = httpClient.execute(httpPost);

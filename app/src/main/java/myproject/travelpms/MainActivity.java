@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void doLogin(final String username, final String passwordUser){
+    private void doLogin(final String email, final String passwordUser){
 
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -139,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
             protected String doInBackground(String... strings) {
 
                 List<NameValuePair> nameValuePairs = new ArrayList<>();
-                nameValuePairs.add(new BasicNameValuePair("username", username));
+                nameValuePairs.add(new BasicNameValuePair("email", email));
                 nameValuePairs.add(new BasicNameValuePair("password", passwordUser));
 
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            "http://192.168.4.165/ApiNakula/User/login/");
+                            SharedVariable.ipServer+"/ApiNakula/User/login/");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     response = httpClient.execute(httpPost);
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
-        sendPostReqAsyncTask.execute(username,passwordUser);
+        sendPostReqAsyncTask.execute(email,passwordUser);
 
     }
 
