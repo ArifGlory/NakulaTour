@@ -89,11 +89,23 @@ public class BerandaActivity extends AppCompatActivity
         });
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu menu = navigationView.getMenu();
+        MenuItem nav_logout = menu.findItem(R.id.nav_logout);
+        if (mUserpref.getIsLoggedIn().equals("no")){
+            nav_logout.setTitle("Login");
+        }else {
+            nav_logout.setTitle("Logout");
+        }
+
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
         TextView txtNamaProfil = (TextView) headerView.findViewById(R.id.txtNamaUser);
         imgFoto = headerView.findViewById(R.id.imageView);
         txtNamaProfil.setText(mUserpref.getIdUser());
+
+
+
+
 
         fragmentBeranda = new FragmentBeranda();
         goToFragment(fragmentBeranda,true);
@@ -171,14 +183,22 @@ public class BerandaActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_riwayat) {
-            Intent i = new Intent(getApplicationContext(), ListPesananUser.class);
-            startActivity(i);
+            if (mUserpref.getIsLoggedIn().equals("no")){
+                new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Sorry")
+                        .setContentText("Fitur ini hanya untuk pengguna, silakan login terlebih dahulu.")
+                        .show();
+            }else {
+                Intent i = new Intent(getApplicationContext(), ListPesananUser.class);
+                startActivity(i);
+            }
+
         } else if (id == R.id.nav_home) {
             Intent i = new Intent(getApplicationContext(), BerandaActivity.class);
             startActivity(i);
 
         } else if (id == R.id.nav_logout) {
-            mUserpref.setBagian("none");
+            mUserpref.setIsLoggedIn("no");
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }

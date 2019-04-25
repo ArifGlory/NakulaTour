@@ -62,13 +62,19 @@ public class SplashActivity extends AppCompatActivity {
 
         cekVersi();
 
-
+       if (mUserpref.getIsLoggedIn() == null){
+           mUserpref.setIsLoggedIn("no");
+       }
         if (mUserpref.getIsLoggedIn() != null){
 
-            mUserpref.setBagian("user");
+            if (mUserpref.getIsLoggedIn().equals("no")){
+                Intent intent = new Intent(getApplicationContext(),BerandaActivity.class);
+                startActivity(intent);
+            }else {
+                Intent intent = new Intent(getApplicationContext(),BerandaActivity.class);
+                startActivity(intent);
+            }
 
-            Intent intent = new Intent(getApplicationContext(),BerandaActivity.class);
-            startActivity(intent);
         }else {
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);

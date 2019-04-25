@@ -5,11 +5,14 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.stepstone.apprating.AppRatingDialog;
 import com.stepstone.apprating.listener.RatingDialogListener;
 
@@ -19,91 +22,62 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import Kelas.PaketTour;
+import Kelas.UserPreference;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class DetailPaketTour extends AppCompatActivity implements RatingDialogListener {
+public class DetailPaketTour extends AppCompatActivity   {
 
     RecyclerView recyclerView;
     Intent i;
-    TextView namaPakettxtDiskon;
     ImageView backdrop,imgRate;
-    Button btnFasilitas,btnItinenary,btnUlasan;
     private SweetAlertDialog pDialogInfo,pDialogLoading;
-    RelativeLayout relaRating;
     AppBarLayout appbar;
+    Button btnPesan;
     PaketTour paketTour;
     ArrayList<Integer> arrayRating = new ArrayList<>();
+    TextView txtNamaPaket,txtKeterangan;
+    UserPreference mUserpref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_paket_tour);
-
+        mUserpref = new UserPreference(this);
 
         i = getIntent();
         paketTour = (PaketTour) i.getSerializableExtra("paketTour");
-
+        btnPesan = findViewById(R.id.btnPesan);
         backdrop = findViewById(R.id.backdrop);
-        btnFasilitas = findViewById(R.id.btnFasilitas);
-        relaRating = findViewById(R.id.relaRating);
-        imgRate = findViewById(R.id.imgRate);
-        appbar = findViewById(R.id.appbar);
-        btnItinenary = findViewById(R.id.btnItinenary);
-        btnUlasan = findViewById(R.id.btnUlasan);
+        txtKeterangan = findViewById(R.id.txtKeterangan);
+        txtNamaPaket = findViewById(R.id.txtNamaPaket);
 
+        txtNamaPaket.setText(paketTour.getNamaPaket());
+        txtKeterangan.setText(paketTour.getKeteranganPaket());
 
+        Glide.with(this)
+                .load(paketTour.getDownloadUrl())
+                .into(backdrop);
 
-        recyclerView = findViewById(R.id.recycler_view);
+        btnPesan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (mUserpref.getIsLoggedIn().equals("no")){
+                    new SweetAlertDialog(DetailPaketTour.this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Sorry")
+                            .setContentText("Fitur ini hanya untuk pengguna, silakan login terlebih dahulu.")
+                            .show();
+                }else {
+                    i = new Intent(getApplicationContext(),PesanPaketActivity.class);
+                    i.putExtra("paketTour",paketTour);
+                    startActivity(i);
+                }
 
-
-
-
-
-
-    }
-
-    private void showDialogRating(){
-        new AppRatingDialog.Builder()
-                .setPositiveButtonText("Submit")
-                .setNegativeButtonText("Cancel")
-                .setNeutralButtonText("Later")
-                .setNoteDescriptions(Arrays.asList("Very Bad", "Not good", "Quite ok", "Very Good", "Excellent !!!"))
-                .setDefaultRating(4)
-                .setTitle("Berikan Penilaian mu")
-                .setDescription("Silakan berikan penilaian mu tentang paket tour ini")
-                .setCommentInputEnabled(true)
-                .setDefaultComment("Keren banget !")
-                .setStarColor(R.color.startblue)
-                .setNoteDescriptionTextColor(R.color.kuningGelap)
-                .setTitleTextColor(R.color.colorPrimary)
-                .setDescriptionTextColor(R.color.colorPrimaryDark)
-                .setHint("Tulis komentar mu disini ...")
-                .setHintTextColor(R.color.colorlight2)
-                .setCommentTextColor(R.color.album_title)
-                .setCommentBackgroundColor(R.color.photo_placeholder)
-                .setWindowAnimation(R.style.MyDialogFadeAnimation)
-                .setCancelable(false)
-                .setCanceledOnTouchOutside(false)
-                .create(DetailPaketTour.this)
-               // .setTargetFragment(this, TAG) // only if listener is implemented by fragment
-                .show();
-    }
-
-    @Override
-    public void onNegativeButtonClicked() {
-
-    }
-
-    @Override
-    public void onNeutralButtonClicked() {
-
-    }
-
-    @Override
-    public void onPositiveButtonClicked(int i, @NotNull String s) {
-      //  Toast.makeText(getApplicationContext(),"submit",Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
+
+
 }

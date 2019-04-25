@@ -166,7 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            SharedVariable.ipServer+"/ApiNakula/User/simpanUserData/");
+                            SharedVariable.ipServer+"/User/simpanUserData/");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     response = httpClient.execute(httpPost);

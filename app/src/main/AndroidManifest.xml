@@ -32,7 +32,6 @@
         <activity
             android:name=".BerandaActivity"
             android:label="Nakula Tour"
-
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DetailPaketTour"
@@ -55,7 +54,10 @@
         <activity
             android:name=".UlasanActivity"
             android:label="Ulasan Pelanggan" />
-        <activity android:name=".BigImageActivity"
+        <activity
+            android:name=".BigImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PesanPaketActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

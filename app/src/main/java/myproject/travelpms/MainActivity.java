@@ -43,6 +43,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtDaftar;
     EditText emailid, password;
     Intent i;
-    Button btnLogin;
+    Button btnLogin,btnGuest;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "MainActivity";
     private String idToken;
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private SweetAlertDialog pDialogLoading;
     DialogInterface.OnClickListener listener;
     private HttpResponse response;
+    UserPreference mUserpref;
 
 
     @Override
@@ -82,9 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
         txtDaftar = findViewById(R.id.txtDaftar);
         btnLogin = findViewById(R.id.btnLogin);
+        btnGuest = findViewById(R.id.btnGuest);
         emailid = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-       // btnLoginByGoogle = findViewById(R.id.btnLoginByGoogle);
+
+        mUserpref = new UserPreference(this);
 
         txtDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                checkValidation();
+            }
+        });
+        btnGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUserpref.setIsLoggedIn("no");
+                Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -145,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(
-                            SharedVariable.ipServer+"/ApiNakula/User/login/");
+                            SharedVariable.ipServer+"/User/login/");
                     httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                     response = httpClient.execute(httpPost);
@@ -176,8 +188,10 @@ public class MainActivity extends AppCompatActivity {
                 int statusCode = response.getStatusLine().getStatusCode();
                 HttpEntity entity = response.getEntity();
 
+
                 String responData = null;
                 try {
+
                     responData = EntityUtils.toString(entity);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -187,7 +201,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("responData:",""+responData);
 
                 if (statusCode == 200){
-                    Intent intent = new Intent(getApplicationContext(),BerandaActivity.class);
+                    mUserpref.setIsLoggedIn("yes");
+                    mUserPref.setIdUser(responData);
+                    Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
                     startActivity(intent);
                 }else {
                     new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)

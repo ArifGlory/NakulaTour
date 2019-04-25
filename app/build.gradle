@@ -47,6 +47,7 @@ dependencies {
     implementation 'org.apache.karaf.cellar:http:4.0.3'
     implementation 'org.apache.karaf.http:http:3.0.8'
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     implementation 'com.riyagayasen.android:easyaccordion:1.0.3'
     implementation 'com.google.firebase:firebase-auth:11.4.2'
     implementation 'com.google.android.gms:play-services-auth:11.4.2'

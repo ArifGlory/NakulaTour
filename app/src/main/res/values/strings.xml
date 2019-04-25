@@ -15,11 +15,21 @@
     <string name="title_activity_login2">Sign in 2</string>
     <string name="title_activity_login3">Sign in 3</string>
 
-    <string-array name="listLevel">
-        <item>Pilih Kelas paket</item>
-        <item>Umum</item>
-        <item>Sekolah</item>
-        <item>Instansi</item>
+    <string-array name="listJK">
+        <item>Laki-laki</item>
+        <item>Wanita</item>
+    </string-array>
+
+    <string-array name="listTransport">
+        <item>Bus</item>
+        <item>Elf</item>
+        <item>Hiace</item>
+    </string-array>
+
+    <string-array name="listStatusJalan">
+        <item>One Day</item>
+        <item>Tanpa Inap</item>
+        <item>Inap</item>
     </string-array>
 
     <string-array name="listBulan">

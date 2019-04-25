@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial") //With this annotation we are going to hide compiler warnings
 public class PaketTour implements Serializable {
+    public int idPaket;
     public String namaPaket;
     public String keteranganPaket;
     public String downloadUrl;
@@ -12,10 +13,19 @@ public class PaketTour implements Serializable {
 
     }
 
-    public PaketTour(String namaPaket, String keteranganPaket,String downloadUrl) {
+    public PaketTour(int idPaket,String namaPaket, String keteranganPaket,String downloadUrl) {
+        this.idPaket = idPaket;
         this.namaPaket = namaPaket;
         this.downloadUrl = downloadUrl;
         this.keteranganPaket = keteranganPaket;
+    }
+
+    public int getIdPaket() {
+        return idPaket;
+    }
+
+    public void setIdPaket(int idPaket) {
+        this.idPaket = idPaket;
     }
 
     public String getNamaPaket() {

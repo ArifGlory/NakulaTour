@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".PesanPaketActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp"
+        />
+
+
+    <LinearLayout
+        android:layout_below="@+id/my_toolbar"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_apps_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Kode pemesanan"
+                android:inputType="text"
+                android:id="@+id/etKodePemesanan"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_toLeftOf="@+id/btnTanggal"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                    android:layout_width="match_parent"
+                    android:enabled="false"
+                    android:layout_height="wrap_content"
+                    android:hint="Tanggal berangkat"
+                    android:inputType="text"
+                    android:id="@+id/etTglBerangkat"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnTanggal"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Pilih"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/background_color"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_group_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Rombongan"
+                android:inputType="text"
+                android:id="@+id/etNamaRombongan"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin"
+            android:textSize="15dp"
+            android:textColor="@color/black2"
+            />
+
+        <Spinner
+            android:padding="10dp"
+            android:id="@+id/sp_level"
+            android:entries="@array/listJK"
+            android:background="@drawable/et_background1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transportasi"
+            android:textSize="15dp"
+            android:textColor="@color/black2"
+            />
+
+        <Spinner
+            android:padding="10dp"
+            android:id="@+id/sp_transportasi"
+            android:entries="@array/listTransport"
+            android:background="@drawable/et_background1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_directions_bus_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah transportasi"
+                android:inputType="number"
+                android:id="@+id/etJmlTransport"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_group_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jumlah peserta"
+                android:inputType="number"
+                android:id="@+id/etJmlPeserta"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Jalan"
+            android:textSize="15dp"
+            android:textColor="@color/black2"
+            />
+
+        <Spinner
+            android:padding="10dp"
+            android:id="@+id/sp_status_jalan"
+            android:entries="@array/listStatusJalan"
+            android:background="@drawable/et_background1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_place_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lokasi Penjemputan"
+                android:inputType="text"
+                android:id="@+id/etLokasiJemput"
+                android:lines="3" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

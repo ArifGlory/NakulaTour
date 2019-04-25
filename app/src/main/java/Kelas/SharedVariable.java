@@ -21,5 +21,5 @@ public class SharedVariable {
     public static Double longitude;
     public static int notifChance = 3;
     public static String check = "0";
-    public static String ipServer = "http://192.168.43.239";
+    public static String ipServer = "http://api.nakulatour.com";
 }

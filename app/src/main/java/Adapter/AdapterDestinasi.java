@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import Kelas.PaketTour;
+import myproject.travelpms.DetailPaketTour;
 import myproject.travelpms.R;
 
 /**
@@ -73,6 +75,15 @@ public class AdapterDestinasi extends RecyclerView.Adapter<AdapterDestinasi.MyVi
             Glide.with(mContext)
                     .load(paketTour.getDownloadUrl())
                     .into(holder.backdrop);
+
+            holder.relaPaket.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext,DetailPaketTour.class);
+                    intent.putExtra("paketTour",paketTour);
+                    mContext.startActivity(intent);
+                }
+            });
 
         }
 

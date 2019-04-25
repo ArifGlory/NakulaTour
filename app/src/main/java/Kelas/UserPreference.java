@@ -13,6 +13,8 @@ public class UserPreference {
     private String KEY_TOKEN = "token";
     private String KEY_ID_USER = "username";
     private String KEY_IS_LOGGED_IN = "islogin";
+    private String KEY_NAMA = "nama";
+    private String KEY_NO_HP = "nope";
     private SharedPreferences preferences;
 
     public UserPreference(Context context){
@@ -29,6 +31,18 @@ public class UserPreference {
     public void setEmail(String email){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(KEY_EMAIL,email);
+        editor.apply();
+    }
+
+    public void setNama(String nama){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(KEY_NAMA,nama);
+        editor.apply();
+    }
+
+    public void setNope(String nope){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(KEY_NO_HP,nope);
         editor.apply();
     }
 
@@ -68,5 +82,13 @@ public class UserPreference {
 
     public String getToken(){
         return preferences.getString(KEY_TOKEN,null);
+    }
+
+    public String getNama(){
+        return preferences.getString(KEY_NAMA,null);
+    }
+
+    public String getNope(){
+        return preferences.getString(KEY_NO_HP,null);
     }
 }

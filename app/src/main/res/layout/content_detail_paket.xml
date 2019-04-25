@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/relaDetail"
-        android:padding="5dp"
+        android:id="@+id/lineDetail"
+      android:padding="15dp"
         android:background="#3498db">
 
         <LinearLayout
@@ -23,95 +23,42 @@
             android:orientation="horizontal"
             android:layout_marginBottom="5dp">
             <TextView
-                android:id="@+id/txtHarga"
+                android:id="@+id/txtNamaPaket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rp. 00"
+                android:text="nama paket"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="20dp" />
 
         </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/txtDiskon"
-            android:background="@drawable/btn_round"
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Diskon 10%"
-            android:textColor="@color/white"
-            android:layout_marginBottom="5dp"
-            android:textStyle="normal"
-            android:textSize="17dp" />
-
-        <TextView
-            android:id="@+id/txtJmlPeserta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50 peserta"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="16dp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fasilitas"
-                android:layout_gravity="right"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:id="@+id/btnFasilitas"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/white_greyish"
-                android:layout_alignParentBottom="true" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_height="wrap_content"
-                android:text="Itinerary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:id="@+id/btnItinenary"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/white_greyish" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_height="wrap_content"
-                android:text="Ulasan"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:id="@+id/btnUlasan"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/white_greyish" />
-
-        </LinearLayout>
-
-
-
-
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txtKeterangan"
+        android:layout_below="@+id/lineDetail"
+        android:padding="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="keterangan"
+        android:textColor="@color/black2"
+        android:textStyle="normal"
+        android:textSize="18sp" />
 
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/relaDetail"
-        android:id="@+id/recycler_view"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:text="Pesan paket ini"
+        android:textSize="16sp"
+       android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:id="@+id/btnPesan"
+        android:background="#3498db"
+        android:textColor="@color/white_greyish" />
+
+
+
 
 </RelativeLayout>
