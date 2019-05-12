@@ -28,21 +28,6 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:drawableLeft="@drawable/ic_apps_black_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Kode pemesanan"
-                android:inputType="text"
-                android:id="@+id/etKodePemesanan"
-                android:maxLines="1"
-                android:singleLine="true" />
-
-        </android.support.design.widget.TextInputLayout>
         <View
             android:layout_width="0dp"
             android:layout_height="15dp" />
@@ -117,7 +102,7 @@
 
         <Spinner
             android:padding="10dp"
-            android:id="@+id/sp_level"
+            android:id="@+id/spJK"
             android:entries="@array/listJK"
             android:background="@drawable/et_background1"
             android:layout_width="match_parent"
@@ -215,12 +200,47 @@
                 android:drawableLeft="@drawable/ic_place_black_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Alamat"
+                android:inputType="text"
+                android:id="@+id/etAlamat"
+                android:lines="3" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:drawableLeft="@drawable/ic_place_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Lokasi Penjemputan"
                 android:inputType="text"
                 android:id="@+id/etLokasiJemput"
                 android:lines="3" />
 
         </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp" />
+
+        <Button
+            android:id="@+id/btnPesan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:padding="3dp"
+            android:text="Pesan Paket"
+            android:textColor="@color/white_greyish"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

@@ -16,17 +16,20 @@
     <string name="title_activity_login3">Sign in 3</string>
 
     <string-array name="listJK">
+        <item>Pilih</item>
         <item>Laki-laki</item>
         <item>Wanita</item>
     </string-array>
 
     <string-array name="listTransport">
+        <item>Pilih</item>
         <item>Bus</item>
         <item>Elf</item>
         <item>Hiace</item>
     </string-array>
 
     <string-array name="listStatusJalan">
+        <item>Pilih</item>
         <item>One Day</item>
         <item>Tanpa Inap</item>
         <item>Inap</item>
