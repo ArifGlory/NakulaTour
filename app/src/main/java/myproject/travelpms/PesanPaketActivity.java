@@ -76,6 +76,7 @@ public class PesanPaketActivity extends AppCompatActivity {
 
         intent = getIntent();
         paketTour = (PaketTour) intent.getSerializableExtra("paketTour");
+        mUserpref = new UserPreference(this);
 
         mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(mTopToolbar);
@@ -205,6 +206,7 @@ public class PesanPaketActivity extends AppCompatActivity {
                 nameValuePairs.add(new BasicNameValuePair("hp", pemesananPaket.getHp()));
                 nameValuePairs.add(new BasicNameValuePair("alamat", pemesananPaket.getAlamat()));
                 nameValuePairs.add(new BasicNameValuePair("lokasi_penjemputan", pemesananPaket.getLokasi_penjemputan()));
+                nameValuePairs.add(new BasicNameValuePair("idPelanggan", pemesananPaket.getIdPelanggan()));
 
 
                 try {
@@ -322,7 +324,8 @@ public class PesanPaketActivity extends AppCompatActivity {
                 statusJalan,
                 mUserpref.getNope(),
                 getAlamat,
-                getLokasiJemput
+                getLokasiJemput,
+                mUserpref.getIdUser()
             );
             pesanPaket(pemesananPaket);
         }

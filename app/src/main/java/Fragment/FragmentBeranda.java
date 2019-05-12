@@ -134,8 +134,10 @@ public class FragmentBeranda extends Fragment {
         JSONArray jsonArray2 = new JSONArray(response);
         Log.d("ukuranJarray",""+jsonArray2.length());
 
+
         for (int d=0;d<jsonArray2.length();d++){
             JSONObject jojo = jsonArray2.getJSONObject(d);
+            Log.d("arrayPaket:",""+jojo.toString());
 
             int idPaket = Integer.parseInt(jojo.getString("no"));
             String namaPaket = jojo.getString("paket");
@@ -153,7 +155,6 @@ public class FragmentBeranda extends Fragment {
             adapterDestinasi.notifyDataSetChanged();
 
         }
-
 
     }
 

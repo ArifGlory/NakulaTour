@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import Kelas.PaketTour;
 import Kelas.PemesananPaket;
@@ -31,17 +33,23 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
     private Context mContext;
 
     private List<PemesananPaket> pemesananList;
+    private SimpleDateFormat dateFormatter;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtNamaPaket;
+        public TextView txtNamaPaket,txtTime,txtNamaUser,txtJmlPeserta,txtJenisTransportasi,txtJmlTransportasi,txtAlamat;
         public LinearLayout lyt_parent;
 
         public MyViewHolder(View view) {
             super(view);
-            namaDestinasi = (TextView) view.findViewById(R.id.namaDestinasi);
-            backdrop = (ImageView) view.findViewById(R.id.backdrop);
-            cv_main = (CardView) view.findViewById(R.id.cardlist_item);
-            relaPaket = view.findViewById(R.id.relaPaket);
+            txtNamaPaket =  view.findViewById(R.id.txtNamaPaket);
+            txtTime =  view.findViewById(R.id.txtTime);
+            txtNamaUser =  view.findViewById(R.id.txtNamaUser);
+            txtJmlPeserta =  view.findViewById(R.id.txtJmlPeserta);
+            txtJenisTransportasi =  view.findViewById(R.id.txtJenisTransportasi);
+            txtJmlTransportasi =  view.findViewById(R.id.txtJmlTransportasi);
+            txtAlamat =  view.findViewById(R.id.txtAlamat);
+
+            lyt_parent = view.findViewById(R.id.lyt_parent);
         }
     }
 
@@ -55,7 +63,7 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.itemlist_travel_destination, parent, false);
+                .inflate(R.layout.item_mypaket, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -63,27 +71,28 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-        if (paketTourList.isEmpty()){
+        if (pemesananList.isEmpty()){
             Toast.makeText(mContext.getApplicationContext(),"Data Kosong !",Toast.LENGTH_LONG).show();
-            Log.d("isiPaketList : ",""+paketTourList.size());
+            Log.d("isiPemesananList : ",""+pemesananList.size());
         }else {
-            final PaketTour paketTour = paketTourList.get(position);
+            final PemesananPaket pemesananPaket = pemesananList.get(position);
+            dateFormatter   = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
-            holder.namaDestinasi.setText(paketTour.getNamaPaket());
+            String tanggal_berangkat = pemesananPaket.getTanggal_berangkat();
+            String tanggal = tanggal_berangkat.substring(8,10);
+            String bulan = tanggal_berangkat.substring(5,7);
+            String tahun = tanggal_berangkat.substring(0,4);
+            tanggal_berangkat = tanggal+"-"+bulan+"-"+tahun;
 
 
-            Glide.with(mContext)
-                    .load(paketTour.getDownloadUrl())
-                    .into(holder.backdrop);
+            holder.txtNamaPaket.setText(pemesananPaket.getPaket());
+            holder.txtNamaUser.setText(pemesananPaket.getNama());
+            holder.txtTime.setText(tanggal_berangkat);
+            holder.txtJenisTransportasi.setText("Jenis Transportasi : "+pemesananPaket.getTransportasi());
+            holder.txtJmlPeserta.setText("Jumlah Peserta : "+pemesananPaket.getJumlah_peserta());
+            holder.txtJmlTransportasi.setText("Jumlah Transportasi : "+pemesananPaket.getJumlah_transportasi());
+            holder.txtAlamat.setText("Alamat : "+pemesananPaket.getAlamat());
 
-            holder.relaPaket.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext,DetailPaketTour.class);
-                    intent.putExtra("paketTour",paketTour);
-                    mContext.startActivity(intent);
-                }
-            });
 
         }
 
@@ -104,6 +113,6 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
     @Override
     public int getItemCount() {
        // return namaDestinasi.length;
-       return paketTourList.size();
+       return pemesananList.size();
     }
 }

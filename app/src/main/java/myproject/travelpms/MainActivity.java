@@ -201,8 +201,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("responData:",""+responData);
 
                 if (statusCode == 200){
+                    responData =  responData.replace("\"", "");
+                    Log.d("responDataNew:",""+responData);
                     mUserpref.setIsLoggedIn("yes");
                     mUserPref.setIdUser(responData);
+                    SharedVariable.userID = responData;
                     Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
                     startActivity(intent);
                 }else {
