@@ -136,18 +136,43 @@
                     android:textColor="@color/grey_90"
                     android:textStyle="normal" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtAlamat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:textSize="15sp"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:text="alamat"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@color/grey_40" />
+                    <TextView
+                        android:id="@+id/txtAlamat"
+                        android:layout_toLeftOf="@+id/txtKonfirmasi"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:text="alamat"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/grey_60" />
+
+                    <TextView
+                        android:id="@+id/txtKonfirmasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:singleLine="true"
+                        android:padding="5dp"
+                        android:text="Konfirmasi"
+                        android:background="@drawable/btn_round"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+
+
 
             </LinearLayout>
 

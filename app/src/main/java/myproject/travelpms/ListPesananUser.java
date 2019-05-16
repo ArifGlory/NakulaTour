@@ -124,6 +124,7 @@ public class ListPesananUser extends AppCompatActivity {
             String alamat = jojo.getString("alamat");
             String lokasi_penjemputan = jojo.getString("lokasi_penjemputan");
             String idPelanggan = jojo.getString("idPelanggan");
+            String konfirmasi = jojo.getString("konfirmasi");
 
             PemesananPaket pemesananPaket = new PemesananPaket(
                    tanggal_berangkat,
@@ -141,6 +142,7 @@ public class ListPesananUser extends AppCompatActivity {
                    idPelanggan
             );
             pemesananPaket.setKode(kode);
+            pemesananPaket.setKonfirmasi(konfirmasi);
             Log.d("lokasi_jemput:",""+lokasi_penjemputan);
 
             pemesananList.add(pemesananPaket);

@@ -15,6 +15,7 @@ public class PemesananPaket {
     public String lokasi_penjemputan;
     public String kode;
     public String idPelanggan;
+    public String konfirmasi;
 
 
     public PemesananPaket(String tanggal_berangkat, String nama, String nama_rombongan, String jk, String paket, String transportasi, String jumlah_peserta, String jumlah_transportasi, String status, String hp, String alamat, String lokasi_penjemputan,
@@ -32,6 +33,14 @@ public class PemesananPaket {
         this.alamat = alamat;
         this.lokasi_penjemputan = lokasi_penjemputan;
         this.idPelanggan = idPelanggan;
+    }
+
+    public String getKonfirmasi() {
+        return konfirmasi;
+    }
+
+    public void setKonfirmasi(String konfirmasi) {
+        this.konfirmasi = konfirmasi;
     }
 
     public String getIdPelanggan() {
