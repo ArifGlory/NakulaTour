@@ -5,6 +5,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,8 +19,10 @@ import com.stepstone.apprating.listener.RatingDialogListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 import Kelas.PaketTour;
 import Kelas.UserPreference;
@@ -35,7 +38,7 @@ public class DetailPaketTour extends AppCompatActivity   {
     Button btnPesan;
     PaketTour paketTour;
     ArrayList<Integer> arrayRating = new ArrayList<>();
-    TextView txtNamaPaket,txtKeterangan;
+    TextView txtNamaPaket,txtKeterangan,txtHarga;
     UserPreference mUserpref;
 
     @Override
@@ -50,6 +53,7 @@ public class DetailPaketTour extends AppCompatActivity   {
         backdrop = findViewById(R.id.backdrop);
         txtKeterangan = findViewById(R.id.txtKeterangan);
         txtNamaPaket = findViewById(R.id.txtNamaPaket);
+        txtHarga = findViewById(R.id.txtHarga);
 
         txtNamaPaket.setText(paketTour.getNamaPaket());
         txtKeterangan.setText(paketTour.getKeteranganPaket());
@@ -57,6 +61,18 @@ public class DetailPaketTour extends AppCompatActivity   {
         Glide.with(this)
                 .load(paketTour.getDownloadUrl())
                 .into(backdrop);
+        Log.d("harga:",""+paketTour.getHarga());
+
+        if (paketTour.getHarga().length() != 0 && paketTour.getHarga() != null ){
+            int harga  = Integer.parseInt(paketTour.getHarga());
+
+            NumberFormat format = NumberFormat.getCurrencyInstance(Locale.ENGLISH);
+            Locale localeID = new Locale("in", "ID");
+            NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+
+            txtHarga.setText(""+formatRupiah.format((double) harga));
+            txtHarga.setVisibility(View.VISIBLE);
+        }
 
         btnPesan.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,6 +16,11 @@
             android:icon="@drawable/ic_distance"
             android:title="Paket Tour Saya" />
 
+        <item
+            android:id="@+id/nav_promo"
+            android:icon="@drawable/ic_sentiment_satisfied_black_24dp"
+            android:title="Promo" />
+
 
         <item
             android:id="@+id/nav_logout"

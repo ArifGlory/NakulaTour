@@ -57,8 +57,11 @@
         <activity
             android:name=".BigImageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PesanPaketActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".PesanPaketActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ListPromoActivity"
+            android:label="Promo"></activity>
     </application>
 
 </manifest>

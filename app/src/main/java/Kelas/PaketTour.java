@@ -8,6 +8,7 @@ public class PaketTour implements Serializable {
     public String namaPaket;
     public String keteranganPaket;
     public String downloadUrl;
+    public String harga;
 
     public PaketTour(){
 
@@ -18,6 +19,14 @@ public class PaketTour implements Serializable {
         this.namaPaket = namaPaket;
         this.downloadUrl = downloadUrl;
         this.keteranganPaket = keteranganPaket;
+    }
+
+    public String getHarga() {
+        return harga;
+    }
+
+    public void setHarga(String harga) {
+        this.harga = harga;
     }
 
     public int getIdPaket() {

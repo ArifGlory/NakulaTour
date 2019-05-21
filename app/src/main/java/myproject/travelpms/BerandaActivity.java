@@ -201,6 +201,9 @@ public class BerandaActivity extends AppCompatActivity
             mUserpref.setIsLoggedIn("no");
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
+        }  else if (id == R.id.nav_promo) {
+            Intent i = new Intent(getApplicationContext(), ListPromoActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

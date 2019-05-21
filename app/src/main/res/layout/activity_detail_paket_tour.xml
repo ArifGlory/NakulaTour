@@ -47,16 +47,40 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtKeterangan"
-                android:layout_below="@+id/lineDetail"
-                android:padding="20dp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="keterangan"
-                android:textColor="@color/black2"
-                android:textStyle="normal"
-                android:textSize="18sp" />
+                android:layout_below="@+id/lineDetail"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtHarga"
+                    android:layout_below="@+id/lineDetail"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="harga"
+                    android:visibility="gone"
+                    android:textColor="@color/black2"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtKeterangan"
+                    android:layout_below="@+id/lineDetail"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="keterangan"
+                    android:textColor="@color/black2"
+                    android:textStyle="normal"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
 
             <Button
                 android:layout_width="match_parent"
