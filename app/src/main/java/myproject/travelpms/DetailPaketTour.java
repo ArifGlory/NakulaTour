@@ -63,7 +63,7 @@ public class DetailPaketTour extends AppCompatActivity   {
                 .into(backdrop);
         Log.d("harga:",""+paketTour.getHarga());
 
-        if (paketTour.getHarga().length() != 0 && paketTour.getHarga() != null ){
+        if (paketTour.getHarga() != null ){
             int harga  = Integer.parseInt(paketTour.getHarga());
 
             NumberFormat format = NumberFormat.getCurrencyInstance(Locale.ENGLISH);
