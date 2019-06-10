@@ -120,6 +120,7 @@ public class ListPesananUser extends AppCompatActivity {
             String jumlah_peserta = jojo.getString("jumlah_peserta");
             String jumlah_transportasi = jojo.getString("jumlah_transportasi");
             String status = jojo.getString("status");
+            String pembayaran = jojo.getString("pembayaran");
             String hp = jojo.getString("hp");
             String alamat = jojo.getString("alamat");
             String lokasi_penjemputan = jojo.getString("lokasi_penjemputan");
@@ -143,6 +144,7 @@ public class ListPesananUser extends AppCompatActivity {
             );
             pemesananPaket.setKode(kode);
             pemesananPaket.setKonfirmasi(konfirmasi);
+            pemesananPaket.setPembayaran(pembayaran);
             Log.d("lokasi_jemput:",""+lokasi_penjemputan);
 
             pemesananList.add(pemesananPaket);

@@ -37,7 +37,7 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView txtNamaPaket,txtTime,txtNamaUser,txtJmlPeserta,txtJenisTransportasi,txtJmlTransportasi,txtAlamat
-                ,txtKonfirmasi;
+                ,txtKonfirmasi,txtStatusBayar;
         public LinearLayout lyt_parent;
 
         public MyViewHolder(View view) {
@@ -50,6 +50,7 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
             txtJmlTransportasi =  view.findViewById(R.id.txtJmlTransportasi);
             txtAlamat =  view.findViewById(R.id.txtAlamat);
             txtKonfirmasi =  view.findViewById(R.id.txtKonfirmasi);
+            txtStatusBayar =  view.findViewById(R.id.txtStatusBayar);
 
             lyt_parent = view.findViewById(R.id.lyt_parent);
         }
@@ -90,6 +91,7 @@ public class AdapterPemesanan extends RecyclerView.Adapter<AdapterPemesanan.MyVi
             holder.txtNamaPaket.setText(pemesananPaket.getPaket());
             holder.txtNamaUser.setText(pemesananPaket.getNama());
             holder.txtTime.setText(tanggal_berangkat);
+            holder.txtStatusBayar.setText(pemesananPaket.getPembayaran());
             holder.txtKonfirmasi.setText(pemesananPaket.getKonfirmasi());
             holder.txtJenisTransportasi.setText("Jenis Transportasi : "+pemesananPaket.getTransportasi());
             holder.txtJmlPeserta.setText("Jumlah Peserta : "+pemesananPaket.getJumlah_peserta());

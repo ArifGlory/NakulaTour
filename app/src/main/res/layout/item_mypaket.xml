@@ -80,6 +80,8 @@
                 android:id="@+id/lineMain"
                 android:orientation="vertical">
 
+
+
                 <TextView
                     android:id="@+id/txtNamaPaket"
                     android:layout_width="wrap_content"
@@ -136,29 +138,48 @@
                     android:textColor="@color/grey_90"
                     android:textStyle="normal" />
 
+                <TextView
+                    android:id="@+id/txtAlamat"
+                    android:layout_toLeftOf="@+id/txtKonfirmasi"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="2dp"
+                    android:text="alamat"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/grey_60" />
+
+
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/txtAlamat"
-                        android:layout_toLeftOf="@+id/txtKonfirmasi"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginRight="10dp"
+                        android:id="@+id/txtStatusBayar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:maxLines="1"
+                        android:textSize="13sp"
+                        android:singleLine="true"
+                        android:padding="5dp"
                         android:layout_marginTop="10dp"
-                        android:text="alamat"
+                        android:text="stattus bayar"
+                        android:background="@drawable/btn_round"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textColor="@color/grey_60" />
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/txtKonfirmasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="1"
-                        android:textSize="15sp"
+                        android:layout_below="@+id/txtStatusBayar"
+                        android:textSize="13sp"
                         android:layout_marginTop="10dp"
                         android:singleLine="true"
                         android:padding="5dp"
